@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Australian Cryptocurrency | Market & Regulation</title>
-    <!-- Meta Pixel Code - 集成Facebook像素代码 -->
+    <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -114,8 +114,8 @@
                         Navigate the dynamic landscape of digital currencies in Australia – from regulatory frameworks to investment opportunities and market trends shaping the future of finance Down Under.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <!-- WhatsApp联系按钮 -->
-                        <a href="https://wa.me/你的电话号码" target="_blank" class="bg-whatsapp hover:bg-whatsapp/90 text-white px-6 py-3 rounded-md font-medium transition-colors text-center flex items-center justify-center pulse-animation">
+                        <!-- WhatsApp联系按钮 - 添加ID -->
+                        <a href="https://wa.me/你的电话号码" target="_blank" id="contactButton1" class="bg-whatsapp hover:bg-whatsapp/90 text-white px-6 py-3 rounded-md font-medium transition-colors text-center flex items-center justify-center pulse-animation">
                             <i class="fa fa-whatsapp mr-2"></i> Contact me on WhatsApp if interested
                         </a>
                     </div>
@@ -351,8 +351,8 @@
                     If you're interested in learning more about cryptocurrency in Australia, investment opportunities, or regulatory guidance, feel free to contact me on WhatsApp.
                 </p>
                 
-                <!-- 主要联系按钮 -->
-                <a href="https://wa.me/你的电话号码" target="_blank" class="bg-whatsapp hover:bg-whatsapp/90 text-white px-8 py-4 rounded-md font-semibold transition-colors whitespace-nowrap inline-flex items-center text-lg mb-8 pulse-animation">
+                <!-- 主要联系按钮 - 添加ID -->
+                <a href="https://wa.me/你的电话号码" target="_blank" id="contactButton2" class="bg-whatsapp hover:bg-whatsapp/90 text-white px-8 py-4 rounded-md font-semibold transition-colors whitespace-nowrap inline-flex items-center text-lg mb-8 pulse-animation">
                     <i class="fa fa-whatsapp mr-3 text-2xl"></i> Contact me on WhatsApp if interested
                 </a>
                 
@@ -391,8 +391,8 @@
                     For the latest news, regulatory updates, and market insights - connect with me directly on WhatsApp.
                 </p>
 
-                <!-- WhatsApp联系按钮 -->
-                <a href="https://wa.me/你的电话号码" target="_blank" class="bg-whatsapp hover:bg-whatsapp/90 text-white px-8 py-4 rounded-md font-medium transition-colors whitespace-nowrap inline-flex items-center mb-8 pulse-animation">
+                <!-- WhatsApp联系按钮 - 添加ID -->
+                <a href="https://wa.me/你的电话号码" target="_blank" id="contactButton3" class="bg-whatsapp hover:bg-whatsapp/90 text-white px-8 py-4 rounded-md font-medium transition-colors whitespace-nowrap inline-flex items-center mb-8 pulse-animation">
                     <i class="fa fa-whatsapp mr-2 text-xl"></i> Contact me on WhatsApp if interested
                 </a>
 
@@ -402,7 +402,7 @@
                     <a href="#" class="text-white hover:text-primary transition-colors"><i class="fa fa-telegram"></i></a>
                     <a href="#" class="text-white hover:text-primary transition-colors"><i class="fa fa-youtube-play"></i></a>
                     <!-- WhatsApp图标 -->
-                    <a href="https://wa.me/你的电话号码" target="_blank" class="text-white hover:text-whatsapp transition-colors"><i class="fa fa-whatsapp"></i></a>
+                    <a href="https://wa.me/你的电话号码" target="_blank" id="contactButton4" class="text-white hover:text-whatsapp transition-colors"><i class="fa fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>
@@ -526,22 +526,62 @@
             });
         });
 
-        // 为WhatsApp按钮添加Facebook事件追踪
-        document.addEventListener('DOMContentLoaded', function() {
-            const whatsappButtons = document.querySelectorAll('a[href^="https://wa.me/"]');
-            whatsappButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // 追踪WhatsApp点击事件
-                    if (typeof fbq !== 'undefined') {
-                        fbq('track', 'Click', {
-                            content_name: 'WhatsApp Contact',
-                            content_category: 'Contact',
-                            content_type: 'button'
-                        });
-                    }
+        // ========== 联系按钮点击事件追踪 ==========
+        // 按钮1 - 英雄区域
+        document.getElementById('contactButton1').addEventListener('click', function() {
+            // Facebook Pixel 事件追踪代码
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Contact', {
+                    content_name: 'WhatsApp Contact - Hero Section',
+                    content_category: 'Contact',
+                    content_type: 'button',
+                    button_id: 'contactButton1'
                 });
-            });
-        });
+                console.log('Tracked click on contactButton1 - Hero Section');
+            }
+        }, false);
+
+        // 按钮2 - 联系专区
+        document.getElementById('contactButton2').addEventListener('click', function() {
+            // Facebook Pixel 事件追踪代码
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Contact', {
+                    content_name: 'WhatsApp Contact - Main Section',
+                    content_category: 'Contact',
+                    content_type: 'button',
+                    button_id: 'contactButton2'
+                });
+                console.log('Tracked click on contactButton2 - Main Section');
+            }
+        }, false);
+
+        // 按钮3 - 底部联系区域
+        document.getElementById('contactButton3').addEventListener('click', function() {
+            // Facebook Pixel 事件追踪代码
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Contact', {
+                    content_name: 'WhatsApp Contact - Footer Section',
+                    content_category: 'Contact',
+                    content_type: 'button',
+                    button_id: 'contactButton3'
+                });
+                console.log('Tracked click on contactButton3 - Footer Section');
+            }
+        }, false);
+
+        // 按钮4 - 社交媒体图标
+        document.getElementById('contactButton4').addEventListener('click', function() {
+            // Facebook Pixel 事件追踪代码
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Contact', {
+                    content_name: 'WhatsApp Contact - Social Icon',
+                    content_category: 'Contact',
+                    content_type: 'icon',
+                    button_id: 'contactButton4'
+                });
+                console.log('Tracked click on contactButton4 - Social Icon');
+            }
+        }, false);
     </script>
 </body>
 </html>
